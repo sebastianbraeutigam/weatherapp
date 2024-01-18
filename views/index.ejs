@@ -1,5 +1,10 @@
 <%- include('partials/header.ejs') %>
 
-    <form action="/searchweather" method="post"></form>
+    <article>
+        <form action="/searchweather" method="post">
+            <input type="text" name="q" placeholder="City" id="searchfield">
+        </form>
+    </article>
+
 
 <%- include('partials/footer.ejs') %>

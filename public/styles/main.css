@@ -2,7 +2,14 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+article{
+    display: flex;
+    justify-content: center;
+}
 
+#searchfield {
+
+}
 
 footer {
 
