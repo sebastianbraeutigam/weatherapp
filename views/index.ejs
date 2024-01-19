@@ -1,10 +1,17 @@
 <%- include('partials/header.ejs') %>
 
-    <article>
+    
         <form action="/searchweather" method="post">
             <input type="text" name="q" placeholder="City" id="searchfield">
         </form>
-    </article>
+
+    <% if (locals.content) { %>
+        <article>
+            <h2> <%= content.name %> </h2>
+            <h2> <%= content.main.temp %> °C </h2>
+        </article>
+    <% } %>
+        
 
 
 <%- include('partials/footer.ejs') %>

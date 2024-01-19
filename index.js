@@ -22,6 +22,19 @@ app.get("/", (req, res) =>  {
     res.render("index.ejs");
 });
 
+app.post("/searchweather", async (req, res) => {
+    const cityId = req.body.q;
+    console.log(req.body.q);
+    try {
+        const response = await axios.get(API_URL+"q="+cityId+"&APPID="+API_KEY+"&lang="+lang+"&units="+units);
+        const result = response.data;
+        res.render("index.ejs", { content : result });
+        
+    } catch (error) {
+        res.render("index.ejs", { content : JSON.stringify(error.response.data)} );
+    }
+})
+
 app.listen(port, () => {
     console.log(`Server is working on Port ${port}.`)
 });
