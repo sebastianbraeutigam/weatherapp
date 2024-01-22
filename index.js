@@ -28,10 +28,15 @@ app.post("/searchweather", async (req, res) => {
     try {
         const response = await axios.get(API_URL+"q="+cityId+"&APPID="+API_KEY+"&lang="+lang+"&units="+units);
         const result = response.data;
-        res.render("index.ejs", { content : result });
+        const main = result.main;
+        const wind = result.wind;
+        const weatherDescription = result.weather;
+        const description = weatherDescription[0];
+    
+        res.render("index.ejs", { content : result , weatherDescription : description , main : main , wind : wind });
         
     } catch (error) {
-        res.render("index.ejs", { content : JSON.stringify(error.response.data)} );
+        res.render("index.ejs", { content : JSON.stringify(error)} );
     }
 })
 

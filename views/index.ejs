@@ -7,8 +7,15 @@
 
     <% if (locals.content) { %>
         <article>
-            <h2> <%= content.name %> </h2>
-            <h2> <%= content.main.temp %> °C </h2>
+            <% let dateNow = new Date() %>
+            <p> <%= dateNow %> </p>
+            <h2> <%= content.name %>  </h2>
+            <p> <%= main.temp %> °C, <%= weatherDescription.description %> </p>
+            <p> gefühlte Temperatur: <%= main.feels_like %> °C </p>
+            <p> min. / max. Temperatur : <%= main.temp_min %> / <%= main.temp_max %> </p>
+            <p> Luftfeuchtigkeit: <%= main.humidity %> % </p>
+            <p> Windgeschwindigkeit: <%= wind.speed %> km/h </p>
+
         </article>
     <% } %>
         
