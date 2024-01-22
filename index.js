@@ -32,8 +32,14 @@ app.post("/searchweather", async (req, res) => {
         const wind = result.wind;
         const weatherDescription = result.weather;
         const description = weatherDescription[0];
+
+       
+        const weatherIconId = description.icon; 
+        const weatherIcon = "https://openweathermap.org/img/wn/" + weatherIconId + "@2x.png";
+
+
     
-        res.render("index.ejs", { content : result , weatherDescription : description , main : main , wind : wind });
+        res.render("index.ejs", { content : result , weatherIcon : weatherIcon , weatherDescription : description , main : main , wind : wind });
         
     } catch (error) {
         res.render("index.ejs", { content : JSON.stringify(error)} );

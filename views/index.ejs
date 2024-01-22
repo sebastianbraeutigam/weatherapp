@@ -10,6 +10,7 @@
             <% let dateNow = new Date() %>
             <p> <%= dateNow %> </p>
             <h2> <%= content.name %>  </h2>
+            <img src="<%= weatherIcon %>" alt="weatherIcon">
             <p> <%= main.temp %> °C, <%= weatherDescription.description %> </p>
             <p> gefühlte Temperatur: <%= main.feels_like %> °C </p>
             <p> min. / max. Temperatur : <%= main.temp_min %> / <%= main.temp_max %> </p>
