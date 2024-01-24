@@ -2,20 +2,21 @@
 
     
         <form action="/searchweather" method="post">
-            <input type="text" name="q" placeholder="City" id="searchfield">
+            <input type="text" name="q" placeholder="Ort" id="searchfield">
         </form>
 
     <% if (locals.content) { %>
         <article>
             <% let dateNow = new Date() %>
-            <p> <%= dateNow %> </p>
-            <h2> <%= content.name %>  </h2>
-            <img src="<%= weatherIcon %>" alt="weatherIcon">
-            <p> <%= main.temp %> °C, <%= weatherDescription.description %> </p>
-            <p> gefühlte Temperatur: <%= main.feels_like %> °C </p>
-            <p> min. / max. Temperatur : <%= main.temp_min %> / <%= main.temp_max %> </p>
-            <p> Luftfeuchtigkeit: <%= main.humidity %> % </p>
-            <p> Windgeschwindigkeit: <%= wind.speed %> km/h </p>
+            <p class="date"> <%= dateNow %> </p>
+            <img class="weatherIcon" src="<%= weatherIcon %>" alt="weatherIcon">
+            <p class="weatherDescription"> <%= weatherDescription.description %> </p>
+            <h2 class="city"> <%= content.name %>  </h2>
+            <p class="temp"> <%= main.temp %> °C </p>
+            <p class="tempMinMax"> min. / max. Temperatur : <%= main.temp_min %> °C / <%= main.temp_max %> °C </p>
+            <p class="tempFeelsLike"> gefühlte Temperatur: <%= main.feels_like %> °C </p>
+            <p class="humidity"> Luftfeuchtigkeit: <%= main.humidity %> % </p>
+            <p class="windspeed"> Windgeschwindigkeit: <%= wind.speed %> km/h </p>
 
         </article>
     <% } %>
