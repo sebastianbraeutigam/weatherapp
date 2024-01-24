@@ -29,17 +29,21 @@ app.post("/searchweather", async (req, res) => {
         const response = await axios.get(API_URL+"q="+cityId+"&APPID="+API_KEY+"&lang="+lang+"&units="+units);
         const result = response.data;
         const main = result.main;
+        const temp = Math.round(main.temp * 10) / 10;
+        const tempMin = Math.round(main.temp_min * 10) / 10;
+        const tempMax = Math.round(main.temp_max * 10) / 10;
+        const tempFeelsLike = Math.round(main.feels_like * 10) / 10;
+
         const wind = result.wind;
+        const windspeed = Math.round(result.wind.speed * 10) / 10;
+
         const weatherDescription = result.weather;
         const description = weatherDescription[0];
 
-       
         const weatherIconId = description.icon; 
         const weatherIcon = "https://openweathermap.org/img/wn/" + weatherIconId + "@2x.png";
 
-
-    
-        res.render("index.ejs", { content : result , weatherIcon : weatherIcon , weatherDescription : description , main : main , wind : wind });
+        res.render("index.ejs", { content : result , weatherIcon : weatherIcon , weatherDescription : description , temp : temp , tempMin : tempMin , tempMax : tempMax , tempFeelsLike : tempFeelsLike , main : main , wind : windspeed });
         
     } catch (error) {
         res.render("index.ejs", { content : JSON.stringify(error)} );

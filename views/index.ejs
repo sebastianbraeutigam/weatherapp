@@ -12,11 +12,11 @@
             <img class="weatherIcon" src="<%= weatherIcon %>" alt="weatherIcon">
             <p class="weatherDescription"> <%= weatherDescription.description %> </p>
             <h2 class="city"> <%= content.name %>  </h2>
-            <p class="temp"> <%= main.temp %> °C </p>
-            <p class="tempMinMax"> min. / max. Temperatur : <%= main.temp_min %> °C / <%= main.temp_max %> °C </p>
-            <p class="tempFeelsLike"> gefühlte Temperatur: <%= main.feels_like %> °C </p>
+            <p class="temp"> <%= temp %> °C </p>
+            <p class="tempMinMax"> min. / max. Temperatur : <%= tempMin %> °C / <%= tempMax %> °C </p>
+            <p class="tempFeelsLike"> gefühlte Temperatur: <%= tempFeelsLike %> °C </p>
             <p class="humidity"> Luftfeuchtigkeit: <%= main.humidity %> % </p>
-            <p class="windspeed"> Windgeschwindigkeit: <%= wind.speed %> km/h </p>
+            <p class="windspeed"> Windgeschwindigkeit: <%= wind %> km/h </p>
 
         </article>
     <% } %>
